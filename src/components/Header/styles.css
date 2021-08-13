@@ -1,0 +1,12 @@
+.nav-bar-link-selected {
+  text-decoration: none;
+  color: #5ECE7B;
+}
+
+.nav-bar-styling-underline {
+  border: 2px;
+}
+
+.header-button-wrapper {
+  min-width: 115px;
+}

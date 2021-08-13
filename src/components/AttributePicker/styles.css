@@ -1,0 +1,23 @@
+.attribute-container {
+  font-weight: 800;
+  font-size: 22px;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 15px;
+}
+
+.attribute-container button {
+  font-size: 20px;
+  width: 80px;
+  height: 45px;
+  margin-left: 0;
+  margin-right: 11px;
+  margin-top: 10px;
+}
+
+
+.chosen-attribute {
+  background-color: #1D1F22;
+  border: 4px solid #1D1F22;
+  color: white
+}

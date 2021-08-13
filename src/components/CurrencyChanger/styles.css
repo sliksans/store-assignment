@@ -1,0 +1,43 @@
+.currency-icon-wrapper {
+    color: #43464E;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    position: relative;
+    width: 20px;
+}
+
+.arrow {
+    position: absolute;
+    font-size: 15px;
+    left: 55px;
+    top: 13px;
+    transition: all 0.15s ease;    
+}
+
+.arrow.rotate {
+    transform:rotate(180deg);
+}
+
+
+.currency-icon-wrapper:hover {
+    cursor: pointer;
+}
+
+.currency-overlay {
+    background-color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 140px;
+    position: absolute;
+    top: 40px;
+    left: -24px;
+    font-size: 20px;
+    box-shadow: rgba(58, 59, 58, 0.15) 0px 8px 24px;
+    z-index: 100;
+}
+
+.currency-overlay div {
+    padding-top: 16px;
+    padding-bottom: 16px
+}

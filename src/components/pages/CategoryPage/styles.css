@@ -1,0 +1,9 @@
+.category-page-item-wrapper {
+  max-width: 78%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin: 0 auto;
+}

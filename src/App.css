@@ -1,38 +1,104 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: 'Raleway', sans-serif;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: white;
+  height: 80px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #43464E;
+  position: relative;
+  margin-left: calc(100vw - 100%);
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-bar {
+  margin-left: 14%;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
 }
+
+.nav-bar-link {
+  text-decoration: none;
+  color: #1D1F22;
+}
+
+.nav-bar div {
+  margin-right: 20px;
+}
+
+.header-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: space-between;
+  vertical-align: middle;
+  margin-right: 14%;
+}
+
+.shop-icon {
+  height: 54px;
+  width: 54px;
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.category-name {
+  text-align: left;
+  font-size: 33px;
+  padding-top: 65px;
+  height: 190px;
+  width: 70.4%;
+  vertical-align: center;
+  margin: 0 auto;  
+}
+
+.content {
+  position: relative;
+  min-height: 100vh;
+}
+
+.cart-overlay-background {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.22);
+  z-index: 3;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+button {
+  background-color: white;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  margin: 4px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+

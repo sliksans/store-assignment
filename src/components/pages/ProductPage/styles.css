@@ -1,0 +1,79 @@
+.product-page-container {
+  padding-top: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 14%;
+  margin-right: 18%;
+  height: 70vh;
+}
+
+.product-page-right-half {
+  width: 35%;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.product-page-price {
+  margin-top: 40px;
+  font-weight: 800;
+  font-size: 22px;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.product-page-price-raleway {
+  margin-top: 14px;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.product-page-right-half h2 {
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-page-left-half {
+  width: 57%;
+}
+
+.add-to-cart {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  height: 50px;
+  width: 97%;
+  font-size: 16px;
+  background-color: #5ECE7B;
+  color: white;
+  border: 0;
+}
+
+.add-to-cart-disabled {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  height: 50px;
+  width: 97%;
+  font-size: 16px;
+  background-color: #bdddc6;
+  color: white;
+  border: 0;
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.description h1 {
+  line-height: 1;
+}

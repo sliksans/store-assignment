@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { PureComponent } from 'react';
+import Header from './components/Header/Header';
+import CategoryPage from './components/pages/CategoryPage/CategoryPage';
+import ProductPage from './components/pages/ProductPage/ProductPage';
+import CartPage from './components/pages/CartPage/CartPage';
+import { connect } from 'react-redux';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends PureComponent {
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Header />
+          <div className="content">
+            {this.props.overlayIsOpen ?
+              <div className="cart-overlay-background"></div> : ''}
+            <Switch>
+              <Route exact path="/">
+                <Redirect to="/clothes" />
+              </Route>
+              <Route exact path='/cart' component={CartPage} />
+              <Route exact path='/:category' component={CategoryPage} />
+              <Route exact path='/:category/:id' component={ProductPage} />
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    overlayIsOpen: state.shop.overlayIsOpen
+  }
+}
+
+export default connect(mapStateToProps)(App);

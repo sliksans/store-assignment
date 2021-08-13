@@ -1,0 +1,19 @@
+.cart-page-container {
+  text-align: left;
+  font-size: 33px;
+  padding-top: 65px;
+  width: 70.4%;
+  vertical-align: middle;
+  margin: 0 auto;  
+}
+
+.cart-page-item-container {
+  width: 90%;
+  padding-bottom: 100px;
+}
+
+.cart-page-item-container hr{
+  background-color: #E5E5E5;
+  height: 1px;
+  border: none
+}
