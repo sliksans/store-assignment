@@ -13,7 +13,7 @@ export class Header extends PureComponent {
 
     this.state = {
       cartItemCount: 0,
-      allCategories: ['clothes', 'tech'],
+      categories: ['all', 'clothes', 'tech'],
       currentCategory: ''
     }
   }
@@ -38,14 +38,15 @@ export class Header extends PureComponent {
   }
 
   render() {
+    const { categories, currentCategory } = this.state
 
     return (
       <header className="App-header">
         <div className="nav-bar">
-          {this.state.allCategories.map((category, id) => (
+          {categories.map((category, id) => (
             <Link
               to={`/${category}`}
-              className={this.state.currentCategory === category ? "nav-bar-link-selected" : "nav-bar-link"}
+              className={currentCategory === category ? "link-selected" : "link"}
               key={id}
             >
               <div>{category.toUpperCase()}</div>

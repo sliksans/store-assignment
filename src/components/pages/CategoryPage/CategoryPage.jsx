@@ -1,34 +1,38 @@
 import { PureComponent } from 'react';
 import CategoryPageItem from '../../CategoryPageItem/CategoryPageItem';
-import { connect } from 'react-redux'
-import getProductsQuery from '../../../queries/getProductsQuery';
+import getProductsByCategoryQuery from '../../../queries/getProductsByCategoryQuery';
+import getProductsQuery from '../../../queries/getProductsQuery'
 import { Query } from '@apollo/client/react/components'
 import './styles.css'
 
 export class CategoryPage extends PureComponent {
 
   render() {
+    const category = this.props.match.params.category
+    const query = category !== 'all' ?
+      getProductsByCategoryQuery(category) : getProductsQuery
+
     return (
       <div>
         <div className="category-name">
-          <h2>
-            {this.props.match.params.category.toUpperCase()}
-          </h2>
+          <div>
+            {category.toUpperCase()}
+          </div>
         </div>
         <div className="category-page-item-wrapper">
-          <Query query={getProductsQuery}>
+          <Query query={query}>
             {({ data, loading, error }) => {
               if (loading)
-                return <>Loading</>
+                return <h2>Loading</h2>
 
               if (error)
-                return <>{error.message}</>
+                return <h2>{error.message}</h2>
 
               return (
-                data.category.products.filter(product => product.category === this.props.match.params.category)
+                data.category.products
                   .map((product) => (
                     <CategoryPageItem key={product.id} productData={product} />
-                  )))
+              )))
             }}
           </Query>
         </div>
@@ -37,10 +41,4 @@ export class CategoryPage extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    products: state.shop.products
-  }
-}
-
-export default connect(mapStateToProps)(CategoryPage);
+export default CategoryPage;

@@ -30,14 +30,16 @@
 }
 
 
-.product-page-right-half h2 {
-  font-size: 35px;
+.product-page-right-half .brand {
+  font-size: 38px;
   font-weight: 600;
-  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.product-page-right-half .name {
+  font-size: 36px;
+  font-weight: 400;
   margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .product-page-left-half {

@@ -55,16 +55,6 @@
   margin-right: auto; 
 }
 
-.category-name {
-  text-align: left;
-  font-size: 33px;
-  padding-top: 65px;
-  height: 190px;
-  width: 70.4%;
-  vertical-align: center;
-  margin: 0 auto;  
-}
-
 .content {
   position: relative;
   min-height: 100vh;

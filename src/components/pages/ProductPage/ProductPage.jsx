@@ -40,7 +40,8 @@ export class ProductPage extends PureComponent {
                 <ProductPageGallery gallery={product.gallery} />
               </div>
               <div className="product-page-right-half">
-                <h2>{product.name}</h2>
+                <div className="brand">{product.brand}</div>
+                <div className="name">{product.name}</div>
                 {product.attributes.map((attribute, id) =>
                   <AttributePicker attribute={attribute} product={product} key={id} />)}
                 <div className="product-page-price">
