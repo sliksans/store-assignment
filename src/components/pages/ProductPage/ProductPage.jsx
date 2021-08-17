@@ -4,7 +4,7 @@ import AttributePicker from '../../AttributePicker/AttributePicker';
 import { connect } from 'react-redux'
 import { addToCart, setCurrentItem } from '../../../redux/Shopping/shopping-actions'
 import { Query } from '@apollo/client/react/components'
-import getProductsQuery from '../../../queries/getProductsQuery';
+import getProductByIdQuery from '../../../queries/getProductByIdQuery'
 import { currencySymbol } from '../../../util';
 import './styles.css'
 
@@ -13,14 +13,15 @@ export class ProductPage extends PureComponent {
   render() {
 
     const { currentProduct, setCurrentProduct, currency } = this.props
+    const productId = this.props.match.params.id
 
     return (
-      <Query query={getProductsQuery}>
+      <Query query={getProductByIdQuery(productId)}>
         {({ data, loading }) => {
           if (loading)
             return <div>Loading</div>
 
-          const product = data.category.products.find(product => product.id === this.props.match.params.id)
+          const product = data.product
 
           const productHasAttributes = product.attributes.length ? true : false
 
