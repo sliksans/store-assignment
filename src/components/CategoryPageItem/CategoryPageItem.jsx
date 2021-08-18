@@ -37,7 +37,7 @@ export class CategoryPageItem extends PureComponent {
               </div>
             </div> : ''}
           <div className="text-wrapper">
-            <div className="item-name">{productData.name}</div>
+            <div className="item-name">{`${productData.brand} ${productData.name}`}</div>
             <div className="price">{currencySymbol(currency) + productData.prices.find(p => p.currency === currency).amount.toFixed(2)}</div>
           </div>
         </div>

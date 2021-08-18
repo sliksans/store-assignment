@@ -44,7 +44,7 @@ export class AttributePicker extends PureComponent {
 
     return (
       <div className="attribute-container" key={attribute.id}>
-        {!inCart ? attribute.name.toUpperCase() + ':' : ''}
+          {!inCart ? attribute.name.toUpperCase() + ':' : ''}
         <div className="attribute-button-container" style={inCart ? { pointerEvents: 'none' } : {}}>
           {attribute.items.map((item, id) => (
             <button

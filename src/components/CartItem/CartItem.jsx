@@ -18,6 +18,7 @@ export class CartItem extends PureComponent {
         {type !== 'overlay' ? <hr></hr> : ''}
         <div className={type === 'overlay' ? "overlay-item" : "page-item"}>
           <div className="left">
+            <div className="name">{item.brand}</div>
             <div className="name">{item.name}</div>
             <div className="price">
               {currencySymbol(currency) + item.prices.find(p => p.currency === currency).amount.toFixed(2)}

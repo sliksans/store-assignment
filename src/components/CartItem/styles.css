@@ -1,5 +1,6 @@
 .overlay-item {
   width: 100%;
+  min-height: 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -18,8 +19,12 @@
   justify-content: space-around;
 }
 
+.overlay-item .name {
+  font-weight: 300;
+}
+
 .overlay-item .price{
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .overlay-item .left button{

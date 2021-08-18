@@ -23,6 +23,7 @@ const getProductsQuery = gql`
       }
       description
       gallery
+      brand
     }
   }
 }
