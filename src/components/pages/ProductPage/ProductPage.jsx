@@ -6,6 +6,7 @@ import { addToCart, setCurrentItem } from '../../../redux/Shopping/shopping-acti
 import { Query } from '@apollo/client/react/components'
 import getProductByIdQuery from '../../../queries/getProductByIdQuery'
 import { currencySymbol } from '../../../util';
+import sanitizeHtml from 'sanitize-html';
 import './styles.css'
 
 export class ProductPage extends PureComponent {
@@ -22,6 +23,7 @@ export class ProductPage extends PureComponent {
             return <div>Loading</div>
 
           const product = data.product
+          const cleanDescription = sanitizeHtml(product.description)
 
           const productHasAttributes = product.attributes.length ? true : false
 
@@ -61,7 +63,7 @@ export class ProductPage extends PureComponent {
                 </button>
                 <div
                   className="description"
-                  dangerouslySetInnerHTML={{ __html: product.description }}
+                  dangerouslySetInnerHTML={{ __html: cleanDescription }}
                 >
                 </div>
               </div>
