@@ -9,6 +9,13 @@ import './App.css';
 
 export class App extends PureComponent {
 
+  componentDidUpdate() {
+    const { overlayIsOpen } = this.props
+
+    document.body.style.overflow = overlayIsOpen ?
+      'hidden' : 'unset'
+  }
+
   render() {
     return (
       <Router>
