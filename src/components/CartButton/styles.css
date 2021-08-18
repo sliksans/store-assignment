@@ -1,5 +1,5 @@
 .cart-button {
-    color: #43464E;
+    color: #1D1F22;
     position: relative;
     width: 25px;
     height: 25px;
@@ -15,7 +15,7 @@
 }
 
 .item-quantity {
-    background-color: #43464E;
+    background-color: #1D1F22;
     font-size: 18px;
     color: white;
     position: absolute;

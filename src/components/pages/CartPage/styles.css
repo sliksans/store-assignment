@@ -1,10 +1,15 @@
 .cart-page-container {
   text-align: left;
   font-size: 33px;
-  padding-top: 65px;
+  padding-top: 50px;
   width: 70.4%;
   vertical-align: middle;
   margin: 0 auto;  
+}
+
+.cart-page-container h2 {
+  font-size: 36px;
+  padding-bottom: 60px;
 }
 
 .cart-page-item-container {
