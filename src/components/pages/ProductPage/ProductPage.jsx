@@ -45,17 +45,23 @@ export class ProductPage extends PureComponent {
                 <div className="brand">{product.brand}</div>
                 <div className="name">{product.name}</div>
                 {product.attributes.map((attribute, id) =>
-                  <AttributePicker attribute={attribute} product={product} key={id} />)}
+                  <AttributePicker
+                    attribute={attribute}
+                    product={product}
+                    key={id}
+                  />)}
                 <div className="product-page-price">
                   <div>
                     PRICE:
                   </div>
                   <div className="product-page-price-raleway">
-                    {currencySymbol(currency) + product.prices.find(p => p.currency === currency).amount.toFixed(2)}
+                    {currencySymbol(currency) + product.prices
+                      .find(p => p.currency === currency).amount.toFixed(2)}
                   </div>
                 </div>
                 <button
-                  className={product.inStock && allAttributesChosen ? "add-to-cart" : "add-to-cart-disabled"}
+                  className={product.inStock && allAttributesChosen ?
+                    "add-to-cart" : "add-to-cart-disabled"}
                   onClick={() => this.props.addToCart(this.props.currentProduct)}
                   disabled={!(product.inStock && allAttributesChosen)}
                 >

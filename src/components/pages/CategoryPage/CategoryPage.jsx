@@ -32,7 +32,7 @@ export class CategoryPage extends PureComponent {
                 data.category.products
                   .map((product) => (
                     <CategoryPageItem key={product.id} productData={product} />
-              )))
+                  )))
             }}
           </Query>
         </div>

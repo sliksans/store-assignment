@@ -45,7 +45,9 @@ export class CurrencyChanger extends PureComponent {
   }
 
   render() {
+    const { setWrapperRef, openClose } = this
     const { currency, setCurrency } = this.props
+    const { isOpen } = this.state
 
     return (
       <Query query={getCurrenciesQuery}>
@@ -54,20 +56,20 @@ export class CurrencyChanger extends PureComponent {
             return ''
 
           return (
-            <div className="currency-icon-wrapper" ref={this.setWrapperRef}>
+            <div className="currency-icon-wrapper" ref={setWrapperRef}>
               <div
                 className="currency-button"
-                onClick={this.openClose}
+                onClick={openClose}
               >
                 {currency}
               </div>
               <IoIosArrowDown
-                className={`arrow ${this.state.isOpen ? "rotate" : null}`}
-                onClick={this.openClose}
+                className={`arrow ${isOpen ? "rotate" : null}`}
+                onClick={openClose}
               />
-              {this.state.isOpen ? <div className="currency-overlay">
+              {isOpen ? <div className="currency-overlay">
                 {data.currencies.map((currency, id) =>
-                  <div onClick={() => {setCurrency(currency); this.openClose();}} key={id}>
+                  <div onClick={() => {setCurrency(currency); openClose();}} key={id}>
                     {currencySymbol(currency) + ' ' + currency}
                   </div>
                 )}

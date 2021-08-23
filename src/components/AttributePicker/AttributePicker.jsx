@@ -26,7 +26,9 @@ export class AttributePicker extends PureComponent {
         { ...item, chosenAttribute: id } : item
       )
 
-    const updatedProduct = { ...currentProduct, attributes: updatedAttributes }
+    const updatedProduct =
+      { ...currentProduct, attributes: updatedAttributes }
+      
     this.props.setCurrentItem(updatedProduct)
   }
 
@@ -40,20 +42,26 @@ export class AttributePicker extends PureComponent {
   render() {
 
     const { inCart, attribute } = this.props
+    const { id, name, items, type } = attribute
     const { chosenAttribute } = this.state
 
+    
+
     return (
-      <div className="attribute-container" key={attribute.id}>
-          {!inCart ? attribute.name.toUpperCase() + ':' : ''}
-        <div className="attribute-button-container" style={inCart ? { pointerEvents: 'none' } : {}}>
-          {attribute.items.map((item, id) => (
+      <div className="attribute-container" key={id}>
+        {!inCart ? name.toUpperCase() + ':' : ''}
+        <div className="attribute-button-container"
+          style={inCart ? { pointerEvents: 'none' } : {}}
+        >
+          {items.map((item, id) => ( 
             <button
               onClick={() => this.setChosenAttribute(item.id)}
-              className={attribute.chosenAttribute === item.id || chosenAttribute === item.id ? "chosen-attribute" : ""}
-              style={attribute.type === 'swatch' ? { backgroundColor: item.value } : {}}
+              className={attribute.chosenAttribute === item.id ||
+                chosenAttribute === item.id ? "chosen-attribute" : ""}
+              style={type === 'swatch' ? { backgroundColor: item.value } : {}}
               key={id}
             >
-              {attribute.type !== 'swatch' ? item.value : ''}
+              {type !== 'swatch' ? item.value : ''}
             </button>
           ))}
         </div>

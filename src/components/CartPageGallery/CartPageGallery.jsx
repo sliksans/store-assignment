@@ -41,8 +41,12 @@ export class CartPageGallery extends PureComponent {
           alt="big"
         />
         {gallery.length > 1 ? <div>
-          <div className="left-arrow" onClick={() => this.backward()}><IoIosArrowDown /></div>
-          <div className="right-arrow" onClick={() => this.forward()}><IoIosArrowDown /></div>
+          <div className="left-arrow" onClick={() => this.backward()}>
+            <IoIosArrowDown />
+          </div>
+          <div className="right-arrow" onClick={() => this.forward()}>
+            <IoIosArrowDown />
+          </div>
         </div> : ''}
       </div>
     )

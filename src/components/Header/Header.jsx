@@ -38,7 +38,7 @@ export class Header extends PureComponent {
   }
 
   render() {
-    const { categories, currentCategory } = this.state
+    const { categories, currentCategory, cartItemCount } = this.state
 
     return (
       <header className="App-header">
@@ -56,7 +56,7 @@ export class Header extends PureComponent {
         <img className="shop-icon" src={logo} alt="logo" />
         <div className="header-button-wrapper">
           <CurrencyChanger />
-          <CartButton quantity={this.state.cartItemCount} />
+          <CartButton quantity={cartItemCount} />
         </div>
       </header>
     );

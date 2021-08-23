@@ -10,35 +10,44 @@ export class CategoryPageItem extends PureComponent {
 
   render() {
     const { productData, currency } = this.props
-    const url = `/${productData.category}/${productData.id}`
+    const { category, id, inStock, gallery, brand, name, prices } = productData
+    const url = `/${category}/${id}`
 
     return (
       <Link
         to={url}
-        style={{ textDecoration: 'none', color: productData.inStock ? 'black' : 'gray' }}
+        style={{ textDecoration: 'none', color: inStock ? 'black' : 'gray' }}
       >
         <div className="main-wrapper">
-          {!productData.inStock ?
+          {!inStock ?
             <div className="out-of-stock">
               OUT OF STOCK
             </div> : ''}
           <div className="image-wrapper">
             <img
               className="product-image"
-              src={productData.gallery[0]}
+              src={gallery[0]}
               alt="item"
-              style={!productData.inStock ? { opacity: 0.3 } : {}}
+              style={!inStock ? { opacity: 0.3 } : {}}
             />
           </div>
-          {productData.inStock ?
-            <div className="item-cart-button" >
+          {inStock ?
+            <div
+              className="item-cart-button"
+              onClick={() => console.log("cart!")}
+            >
               <div className="item-cart-button-icon">
                 <FiShoppingCart />
               </div>
             </div> : ''}
           <div className="text-wrapper">
-            <div className="item-name">{`${productData.brand} ${productData.name}`}</div>
-            <div className="price">{currencySymbol(currency) + productData.prices.find(p => p.currency === currency).amount.toFixed(2)}</div>
+            <div className="item-name">
+              {`${brand} ${name}`}
+            </div>
+            <div className="price">
+              {currencySymbol(currency) + prices
+                .find(p => p.currency === currency).amount.toFixed(2)}
+            </div>
           </div>
         </div>
       </Link>

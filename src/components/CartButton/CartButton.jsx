@@ -37,17 +37,21 @@ export class CartButton extends PureComponent {
 
   render() {
 
-    const { overlayIsOpen, openCloseOverlay } = this.props
+    const { overlayIsOpen, openCloseOverlay, quantity } = this.props
 
     return (
       <div className="cart-button" ref={this.setWrapperRef}>
-        <div className="cart-icon" onClick={() => openCloseOverlay(!overlayIsOpen)}>
+        <div
+          className="cart-icon"
+          onClick={() => openCloseOverlay(!overlayIsOpen)}
+        >
           <FiShoppingCart />
-          <div className={this.props.quantity ? "item-quantity" : "item-quantity-invisible"}>
-            {this.props.quantity}
+          <div className={quantity ? "item-quantity" : "item-quantity-invisible"}>
+            {quantity}
           </div>
         </div>
-        {overlayIsOpen ? <CartOverlay close={() => openCloseOverlay(false)}/> : ''}
+        {overlayIsOpen ?
+          <CartOverlay close={() => openCloseOverlay(false)}/> : ''}
       </div>
     );
   }
