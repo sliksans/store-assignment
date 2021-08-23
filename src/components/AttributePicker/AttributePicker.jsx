@@ -28,7 +28,7 @@ export class AttributePicker extends PureComponent {
 
     const updatedProduct =
       { ...currentProduct, attributes: updatedAttributes }
-      
+
     this.props.setCurrentItem(updatedProduct)
   }
 
@@ -50,9 +50,7 @@ export class AttributePicker extends PureComponent {
     return (
       <div className="attribute-container" key={id}>
         {!inCart ? name.toUpperCase() + ':' : ''}
-        <div className="attribute-button-container"
-          style={inCart ? { pointerEvents: 'none' } : {}}
-        >
+        <div className={inCart ? "button-container-disabled" : ""}>
           {items.map((item, id) => ( 
             <button
               onClick={() => this.setChosenAttribute(item.id)}

@@ -31,6 +31,7 @@
     font-size: 25px;
     text-align: center;
     vertical-align: middle;
+    z-index: 10;
 }
 
 .item-cart-button-icon {
@@ -69,10 +70,17 @@
     padding-top: 5px;
 }
 
-.product-image {
+.image-wrapper .image {
     width: 354px;
     height: 330px;
     object-fit: contain;
+}
+
+.image-wrapper .image-oos {
+  width: 354px;
+  height: 330px;
+  object-fit: contain;
+  opacity: 0.3;
 }
 
 .out-of-stock {
@@ -83,6 +91,16 @@
   text-align: center;
   padding: 47% 0;
   vertical-align: middle;
+}
+
+.link-in-stock {
+  text-decoration: none;
+  color: black
+}
+
+.link-out-of-stock {
+  text-decoration: none;
+  color: gray
 }
 
 

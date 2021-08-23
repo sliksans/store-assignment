@@ -7,6 +7,10 @@
   font-weight: 700;
 }
 
+.button-container-disabled {
+  pointer-events: none;
+}
+
 .attribute-container button {
   font-size: 20px;
   width: 80px;

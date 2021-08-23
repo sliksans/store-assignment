@@ -38,6 +38,10 @@
   padding-bottom: 20px;
 }
 
+.link-to-cart-page {
+  text-decoration: none;
+}
+
 .cart-overlay-button-green {
   background-color: #5ECE7B;
   color: white;

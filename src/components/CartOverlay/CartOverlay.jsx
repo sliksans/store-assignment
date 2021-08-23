@@ -62,7 +62,7 @@ export class CartOverlay extends PureComponent {
           </div>
         </div>
         <div className="cart-overlay-buttons">
-          <Link to='/cart' style={{ textDecoration: 'none' }}>
+          <Link to='/cart' className="link-to-cart-page">
             <button onClick={() => close()}>VIEW BAG</button>
           </Link>
           <button className="cart-overlay-button-green">CHECKOUT</button>

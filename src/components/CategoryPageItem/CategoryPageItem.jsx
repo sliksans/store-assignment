@@ -16,7 +16,7 @@ export class CategoryPageItem extends PureComponent {
     return (
       <Link
         to={url}
-        style={{ textDecoration: 'none', color: inStock ? 'black' : 'gray' }}
+        className={inStock ? "link-in-stock" : "link-out-of-stock"}
       >
         <div className="main-wrapper">
           {!inStock ?
@@ -25,10 +25,9 @@ export class CategoryPageItem extends PureComponent {
             </div> : ''}
           <div className="image-wrapper">
             <img
-              className="product-image"
+              className={inStock ? "image" : "image-oos"}
               src={gallery[0]}
               alt="item"
-              style={!inStock ? { opacity: 0.3 } : {}}
             />
           </div>
           {inStock ?
