@@ -38,10 +38,14 @@ export class Header extends PureComponent {
   }
 
   render() {
+    const { overlayIsOpen } = this.props
     const { categories, currentCategory, cartItemCount } = this.state
 
     return (
-      <header className="App-header">
+      <header
+        className="header"
+        style={overlayIsOpen ? { padding: '0 6px'} : {}}
+      >
         <div className="nav-bar">
           {categories.map((category, id) => (
             <Link
@@ -65,7 +69,8 @@ export class Header extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.shop.cart
+    cart: state.shop.cart,
+    overlayIsOpen: state.shop.overlayIsOpen
   }
 }
 

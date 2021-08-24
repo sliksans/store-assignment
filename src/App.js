@@ -17,13 +17,18 @@ export class App extends PureComponent {
   }
 
   render() {
+    const { overlayIsOpen } = this.props
+
     return (
       <Router>
-        <div className="App">
+        <div className="app">
           <Header />
-          <div className="content">
-            {this.props.overlayIsOpen ?
-              <div className="cart-overlay-background"></div> : ''}
+          {this.props.overlayIsOpen ?
+            <div className="cart-overlay-background"></div> : ''}
+          <div
+            className="content"
+            style={overlayIsOpen ? { padding: '0 6px' } : {}}
+          >
             <Switch>
               <Route exact path="/">
                 <Redirect to="/clothes" />
