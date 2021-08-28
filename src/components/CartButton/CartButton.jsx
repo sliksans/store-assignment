@@ -50,8 +50,8 @@ export class CartButton extends PureComponent {
             {quantity}
           </div>
         </div>
-        {overlayIsOpen ?
-          <CartOverlay close={() => openCloseOverlay(false)}/> : ''}
+        {overlayIsOpen &&
+          <CartOverlay close={() => openCloseOverlay(false)}/>}
       </div>
     );
   }

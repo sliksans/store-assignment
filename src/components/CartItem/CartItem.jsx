@@ -16,7 +16,7 @@ export class CartItem extends PureComponent {
 
     return (
       <div>
-        {type !== 'overlay' ? <hr></hr> : ''}
+        {type !== 'overlay' && <hr/>}
         <div className={type === 'overlay' ? "overlay-item" : "page-item"}>
           <div className="left">
             <div className="brand">{brand}</div>
@@ -29,8 +29,8 @@ export class CartItem extends PureComponent {
               {attributes.map((attribute, id) =>
                 <div key={id}>
                   <div className="attribute-name">
-                    {attribute.items[0].id === "Yes" ?
-                      attribute.name + ':' : ''}
+                    {attribute.items[0].id === "Yes" &&
+                      attribute.name + ':'}
                   </div>
                   <AttributePicker
                     attribute={attribute}

@@ -11,9 +11,33 @@ import './styles.css'
 
 export class ProductPage extends PureComponent {
 
+  productHasAttributes(product) {
+    return product.attributes.length > 0
+  }
+
+  allAttributesChosen(product) {
+    return this.productHasAttributes(product) ?
+      this.props.currentProduct.attributes.every(item => item.chosenAttribute) : true
+  }
+
+  buttonText(product) {
+    return product.inStock ?
+      (this.allAttributesChosen(product) ?
+        "ADD TO CART" : "PLEASE SELECT PRODUCT OPTIONS") : "OUT OF STOCK"
+  }
+
+  buttonClassName(product) {
+    return product.inStock && this.allAttributesChosen(product) ?
+      "add-to-cart" : "add-to-cart-disabled"
+  }
+
+  buttonDisabled(product) {
+    return !(product.inStock && this.allAttributesChosen(product))
+  }
+
   render() {
 
-    const { currentProduct, setCurrentProduct, currency } = this.props
+    const { currentProduct, setCurrentProduct, addToCart, currency } = this.props
     const productId = this.props.match.params.id
 
     return (
@@ -23,28 +47,20 @@ export class ProductPage extends PureComponent {
             return <div>Loading</div>
 
           const product = data.product
-          const cleanDescription = sanitizeHtml(product.description)
+          const { gallery, brand, name, attributes, prices, description } = product
 
-          const productHasAttributes = product.attributes.length > 0
-
-          if (!productHasAttributes)
+          if (!this.productHasAttributes(product))
             setCurrentProduct(product)
-
-          const allAttributesChosen = productHasAttributes ? currentProduct.attributes
-            .every(item => item.chosenAttribute) : true
-
-          const addToCartButtonText = product.inStock ?
-            (allAttributesChosen ? "ADD TO CART" : "PLEASE SELECT PRODUCT OPTIONS") : "OUT OF STOCK"
 
           return (
             <div className="product-page-container">
               <div className="product-page-left-half">
-                <ProductPageGallery gallery={product.gallery} />
+                <ProductPageGallery gallery={gallery} />
               </div>
               <div className="product-page-right-half">
-                <div className="brand">{product.brand}</div>
-                <div className="name">{product.name}</div>
-                {product.attributes.map((attribute, id) =>
+                <div className="brand">{brand}</div>
+                <div className="name">{name}</div>
+                {attributes.map((attribute, id) =>
                   <AttributePicker
                     attribute={attribute}
                     product={product}
@@ -55,21 +71,20 @@ export class ProductPage extends PureComponent {
                     PRICE:
                   </div>
                   <div className="product-page-price-raleway">
-                    {currencySymbol(currency) + product.prices
+                    {currencySymbol(currency) + prices
                       .find(p => p.currency === currency).amount.toFixed(2)}
                   </div>
                 </div>
                 <button
-                  className={product.inStock && allAttributesChosen ?
-                    "add-to-cart" : "add-to-cart-disabled"}
-                  onClick={() => this.props.addToCart(this.props.currentProduct)}
-                  disabled={!(product.inStock && allAttributesChosen)}
+                  className={this.buttonClassName(product)}
+                  onClick={() => addToCart(currentProduct)}
+                  disabled={this.buttonDisabled(product)}
                 >
-                  {addToCartButtonText}
+                  {this.buttonText(product)}
                 </button>
                 <div
                   className="description"
-                  dangerouslySetInnerHTML={{ __html: cleanDescription }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
                 >
                 </div>
               </div>

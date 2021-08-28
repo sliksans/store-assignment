@@ -67,13 +67,13 @@ export class CurrencyChanger extends PureComponent {
                 className={`arrow ${isOpen ? "rotate" : null}`}
                 onClick={openClose}
               />
-              {isOpen ? <div className="currency-overlay">
+              {isOpen && <div className="currency-overlay">
                 {data.currencies.map((currency, id) =>
                   <div onClick={() => {setCurrency(currency); openClose();}} key={id}>
                     {currencySymbol(currency) + ' ' + currency}
                   </div>
                 )}
-              </div> : ''}
+              </div>}
             </div>
           )
         }}

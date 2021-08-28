@@ -40,14 +40,14 @@ export class CartPageGallery extends PureComponent {
           src={gallery[currentImageId]}
           alt="big"
         />
-        {gallery.length > 1 ? <div>
+        {gallery.length > 1 && <div>
           <div className="left-arrow" onClick={() => this.backward()}>
             <IoIosArrowDown />
           </div>
           <div className="right-arrow" onClick={() => this.forward()}>
             <IoIosArrowDown />
           </div>
-        </div> : ''}
+        </div>}
       </div>
     )
   }

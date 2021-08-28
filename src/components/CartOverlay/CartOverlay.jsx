@@ -24,7 +24,7 @@ export class CartOverlay extends PureComponent {
     this.updateData()
   }
 
-  updateData() {
+  updateData = () => {
     const { cart, currency } = this.props
 
     const totalCount = Object.values(cart)

@@ -8,36 +8,45 @@ import './styles.css'
 
 export class CategoryPageItem extends PureComponent {
 
+  productHasAttributes() {
+    return this.props.productData.attributes.length > 0
+  }
+
+  handleCartButtonClick() {
+    const { productData, addToCart } = this.props
+
+    if (this.productHasAttributes()) return
+
+    addToCart(productData)
+  }
+
   render() {
-    const { productData, currency, addToCart } = this.props
+    const { productData, currency } = this.props
     const { category, id, inStock, gallery, brand, name, prices } = productData
     const url = `/${category}/${id}`
 
-    const productHasAttributes = productData.attributes.length > 0
-
     return (
       <div className="item-wrapper">
-        {inStock ?
+        {inStock &&
           <Link
-            to={productHasAttributes ? url : '#'}
-            onClick={() => !productHasAttributes ? addToCart(productData) : ''}
+            to={this.productHasAttributes() ? url : '#'}
+            onClick={() => this.handleCartButtonClick()}
           >
-            <div className="item-cart-button"
-            >
+            <div className="item-cart-button">
               <div className="item-cart-button-icon">
                 <FiShoppingCart />
               </div>
             </div>
-          </Link> : ''}
+          </Link>}
         <div className="content-wrapper">
           <Link
             to={url}
             className={inStock ? "link-in-stock" : "link-out-of-stock"}
           >
-            {!inStock ?
+            {!inStock &&
               <div className="out-of-stock">
                 OUT OF STOCK
-              </div> : ''}
+              </div>}
             <div className="image-wrapper">
               <img
                 className={inStock ? "image" : "image-oos"}
