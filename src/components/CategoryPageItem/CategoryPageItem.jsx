@@ -9,47 +9,54 @@ import './styles.css'
 export class CategoryPageItem extends PureComponent {
 
   render() {
-    const { productData, currency } = this.props
+    const { productData, currency, addToCart } = this.props
     const { category, id, inStock, gallery, brand, name, prices } = productData
     const url = `/${category}/${id}`
 
+    const productHasAttributes = productData.attributes.length > 0
+
     return (
-      <Link
-        to={url}
-        className={inStock ? "link-in-stock" : "link-out-of-stock"}
-      >
-        <div className="main-wrapper">
-          {!inStock ?
-            <div className="out-of-stock">
-              OUT OF STOCK
-            </div> : ''}
-          <div className="image-wrapper">
-            <img
-              className={inStock ? "image" : "image-oos"}
-              src={gallery[0]}
-              alt="item"
-            />
-          </div>
-          {inStock ?
-            <div
-              className="item-cart-button"
-              onClick={() => console.log("cart!")}
+      <div className="item-wrapper">
+        {inStock ?
+          <Link
+            to={productHasAttributes ? url : '#'}
+            onClick={() => !productHasAttributes ? addToCart(productData) : ''}
+          >
+            <div className="item-cart-button"
             >
               <div className="item-cart-button-icon">
                 <FiShoppingCart />
               </div>
-            </div> : ''}
-          <div className="text-wrapper">
-            <div className="item-name">
-              {`${brand} ${name}`}
             </div>
-            <div className="price">
-              {currencySymbol(currency) + prices
-                .find(p => p.currency === currency).amount.toFixed(2)}
+          </Link> : ''}
+        <div className="content-wrapper">
+          <Link
+            to={url}
+            className={inStock ? "link-in-stock" : "link-out-of-stock"}
+          >
+            {!inStock ?
+              <div className="out-of-stock">
+                OUT OF STOCK
+              </div> : ''}
+            <div className="image-wrapper">
+              <img
+                className={inStock ? "image" : "image-oos"}
+                src={gallery[0]}
+                alt="item"
+              />
             </div>
-          </div>
+            <div className="text-wrapper">
+              <div className="item-name">
+                {`${brand} ${name}`}
+              </div>
+              <div className="price">
+                {currencySymbol(currency) + prices
+                  .find(p => p.currency === currency).amount.toFixed(2)}
+              </div>
+            </div>
+          </Link>
         </div>
-      </Link>
+      </div>
     );
   }
 }

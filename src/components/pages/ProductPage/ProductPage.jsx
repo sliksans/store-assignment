@@ -25,7 +25,7 @@ export class ProductPage extends PureComponent {
           const product = data.product
           const cleanDescription = sanitizeHtml(product.description)
 
-          const productHasAttributes = product.attributes.length ? true : false
+          const productHasAttributes = product.attributes.length > 0
 
           if (!productHasAttributes)
             setCurrentProduct(product)

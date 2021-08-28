@@ -1,79 +1,79 @@
-.main-wrapper{
-    max-height: 444px;
-    max-width: 386px;
-    min-height: 222px;
-    min-width: 193px;
-    margin-top: 20px;
-    margin-bottom: 80px;
-    margin-right: 20px;
-    margin-left: 20px;
-    position: relative;
-    transition: box-shadow 0.15s;
-    text-decoration:none;
+.item-wrapper {
+  position: relative;
+  max-height: 444px;
+  max-width: 386px;
+  min-height: 222px;
+  min-width: 193px;
+  margin: 20px 20px 80px 20px;
+  transition: box-shadow 0.15s;
 }
 
-.main-wrapper:hover {
-    box-shadow: rgba(58, 59, 58, 0.15) 0px 8px 24px;
-    cursor: pointer;
+.content-wrapper {
+  text-decoration:none;
+}
+
+.item-wrapper:hover {
+  box-shadow: rgba(58, 59, 58, 0.15) 0px 8px 24px;
+  cursor: pointer;
 }
 
 .item-cart-button {
-    background-color: #5ECE7B;
-    height: 52px;
-    width: 52px;
-    bottom: 70px;
-    right: 31px;
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.15s;
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    vertical-align: middle;
-    z-index: 10;
+  background-color: #5ECE7B;
+  height: 52px;
+  width: 52px;
+  bottom: 73px;
+  right: 41px;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.15s;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 10;
 }
 
 .item-cart-button-icon {
-    position: absolute;
-    right: 14px;
-    top: 13px;
+  position: absolute;
+  right: 14px;
+  top: 13px;
 }
 
-.main-wrapper:hover .item-cart-button {
-    opacity: 1;
+.item-wrapper:hover .item-cart-button {
+  opacity: 1;
 }
 
 .image-wrapper {
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
-    max-height: 100%;
-    max-width: 100%;
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .text-wrapper {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    text-align: left;
-    font-size: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  text-align: left;
+  font-size: 20px;
 }
 
 .item-name {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .price {
-    font-weight: 500;
-    padding-top: 5px;
+  font-weight: 500;
+  padding-top: 5px;
 }
 
 .image-wrapper .image {
-    width: 354px;
-    height: 330px;
-    object-fit: contain;
+  width: 354px;
+  height: 330px;
+  object-fit: contain;
 }
 
 .image-wrapper .image-oos {
