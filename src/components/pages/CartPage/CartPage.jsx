@@ -14,7 +14,7 @@ export class CartPage extends PureComponent {
         <h2>CART</h2>
         <div className="cart-page-item-container">
           {cart.map((item, id) => <CartItem item={item} key={id} />)}
-          {cart.length && <div/>}
+          {cart.length ? <div /> : ''}
         </div>
       </div>
     )
